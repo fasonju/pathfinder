@@ -6,10 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./node.component.css']
 })
 export class NodeComponent {
-  state : string = "path"
+  state : string = "wall"
   colors : Record<string, string> = {
     "path" : "white",
     "wall" : "black",
+    "weight" : "yellow",
   }
 
   toWall() : void {
