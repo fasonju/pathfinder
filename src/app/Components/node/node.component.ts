@@ -21,6 +21,10 @@ export class NodeComponent {
     this.state = "path"
   }
 
+  toWeight() : void {
+    this.state = "weight"
+  }
+
   getColor() : string {
       return this.colors[this.state]
   }
