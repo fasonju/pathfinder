@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { NodeHelper } from 'src/app/NodeHelpers/NodeHelper';
+import { WallHelper } from '../../NodeHelpers/Wallhelper';
+import { WeightHelper } from '../../NodeHelpers/WeightHelper';
+import { PathHelper } from '../../NodeHelpers/PathHelper';
 
 @Component({
   selector: 'app-node',
@@ -6,26 +10,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./node.component.css']
 })
 export class NodeComponent {
-  state : string = "wall"
-  colors : Record<string, string> = {
-    "path" : "white",
-    "wall" : "black",
-    "weight" : "yellow",
+  constructor(
+    public wallHelper : WallHelper, 
+    public weightHelper : WeightHelper, 
+    public pathHelper : PathHelper) { 
+    wallHelper = new WallHelper(this)
+    weightHelper = new WeightHelper(this)
+    pathHelper = new PathHelper(this)
   }
-
-  toWall() : void {
-    this.state = "wall"
-  }
-
-  toPath() : void {
-    this.state = "path"
-  }
-
-  toWeight() : void {
-    this.state = "weight"
-  }
+  state : NodeHelper = this.wallHelper
 
   getColor() : string {
-      return this.colors[this.state]
+      return this.state.color
   }
 }
