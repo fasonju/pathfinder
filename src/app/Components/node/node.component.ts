@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NodeHelper } from 'src/app/NodeHelpers/NodeHelper';
+import { NodeHelper } from '../../NodeHelpers/NodeHelper';
 import { WallHelper } from '../../NodeHelpers/Wallhelper';
 import { WeightHelper } from '../../NodeHelpers/WeightHelper';
 import { PathHelper } from '../../NodeHelpers/PathHelper';
@@ -10,17 +10,17 @@ import { PathHelper } from '../../NodeHelpers/PathHelper';
   styleUrls: ['./node.component.css']
 })
 export class NodeComponent {
-  constructor(
-    public wallHelper : WallHelper, 
-    public weightHelper : WeightHelper, 
-    public pathHelper : PathHelper) { 
-    wallHelper = new WallHelper(this)
-    weightHelper = new WeightHelper(this)
-    pathHelper = new PathHelper(this)
-  }
+  wallHelper : WallHelper = new WallHelper(this)
+  weightHelper : WallHelper = new WeightHelper(this)
+  pathHelper : WallHelper= new PathHelper(this)
+
   state : NodeHelper = this.wallHelper
 
   getColor() : string {
       return this.state.color
+  }
+
+  transitionType() : void {
+      this.state.transitionType()
   }
 }
