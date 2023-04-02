@@ -23,4 +23,15 @@ export class NodeComponent {
   transitionType() : void {
       this.state.transitionType()
   }
+
+  reset() : void {
+      this.wallHelper.reset()
+      this.weightHelper.reset()
+      this.pathHelper.reset()
+      this.state = this.wallHelper
+  }
+
+  click() : void {
+      this.state.click()
+  }
 }

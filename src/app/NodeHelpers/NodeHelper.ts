@@ -21,6 +21,15 @@ export abstract class NodeHelper {
         this.node.state = this.node.weightHelper
     }
 
-    abstract transitionType() : void
+    abstract reset() : void
+
+    abstract click() : void
+
+    
+
+
+
+    //temp
+    abstract transitionType() : void 
     
 }

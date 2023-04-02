@@ -6,4 +6,12 @@ export class WeightHelper extends NodeHelper {
     transitionType() : void {
         this.toPath()
     }
+
+    click() : void {
+        this.transitionType()
+    }
+
+    reset() {
+        console.log("resetting weight")
+    }
 }

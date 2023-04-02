@@ -7,4 +7,13 @@ export class PathHelper extends NodeHelper {
     transitionType() : void {
         this.toWall()
     }
+
+    click() : void {
+        this.transitionType()
+    }
+
+    reset() : void {
+        console.log("resetting path")
+    }
+
 }

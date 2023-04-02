@@ -6,4 +6,12 @@ export class WallHelper extends NodeHelper {
     transitionType() : void {
         this.toWeight()
     }
+
+    click() : void {
+        this.transitionType()
+    }
+
+    reset() : void {
+        console.log("resetting wall")
+    }
 }
