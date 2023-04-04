@@ -1,11 +1,11 @@
 
-import { NodeComponent } from "../Components/node/node.component"
+import { NodeStateMachine } from "./NodeStateMachine";
 
 export abstract class NodeHelper {
     abstract readonly color : string
-    node : NodeComponent
+    node : NodeStateMachine
 
-    constructor(node : NodeComponent) {
+    constructor(node : NodeStateMachine) {
         this.node = node
     }   
 

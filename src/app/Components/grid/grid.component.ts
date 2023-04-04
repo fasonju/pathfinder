@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class GridComponent {
 
+  grid : Node[][][] = [];
+  GRID_WIDTH : number = 20;
+  GRID_HEIGHT : number = 20;
+  constructor() { }
+  
+
+  ngOnInit(): void {
+    
+  }
+
+  
 }

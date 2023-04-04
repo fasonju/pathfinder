@@ -1,1 +1,3 @@
-<p>grid works!</p>
+<div class="row" *ngFor="let row of [].constructor(GRID_WIDTH); let r = index">
+    <app-node *ngFor="let col of [].constructor(GRID_HEIGHT); let j = index"></app-node>
+</div><!-- [].constructor(GRID_WIDTH) generates an array with empty arrays -->
