@@ -7,9 +7,9 @@ import { WallHelper } from "./Wallhelper"
 
 
 export class NodeStateMachine {
-    node : NodeComponent
+    node? : NodeComponent
 
-    constructor(node : NodeComponent) {
+    setNodeComponent(node : NodeComponent) : void {
         this.node = node
     }
 

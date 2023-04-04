@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { NodeStateMachine } from '../../NodeHelpers/NodeStateMachine';
 
 @Component({
@@ -7,8 +7,11 @@ import { NodeStateMachine } from '../../NodeHelpers/NodeStateMachine';
   styleUrls: ['./node.component.css']
 })
 export class NodeComponent {
-  nodeStateMachine : NodeStateMachine = new NodeStateMachine(this)
+  @Input() nodeStateMachine! : NodeStateMachine;
 
+  ngOnInit(): void {
+    this.nodeStateMachine.setNodeComponent(this)
+  }
 
   getColor() : string {
       return this.nodeStateMachine.getColor()

@@ -1,3 +1,7 @@
 <div class="row" *ngFor="let row of [].constructor(GRID_WIDTH); let r = index">
-    <app-node *ngFor="let col of [].constructor(GRID_HEIGHT); let j = index"></app-node>
-</div><!-- [].constructor(GRID_WIDTH) generates an array with empty arrays -->
+    <ng-container *ngFor="let col of [].constructor(GRID_HEIGHT); let j = index" > 
+        <app-node [nodeStateMachine]="grid[r][j]">{{grid}}</app-node>
+    </ng-container>
+</div>
+
+<button (click)="setPath()"></button>
