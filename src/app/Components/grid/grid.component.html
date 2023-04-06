@@ -1,7 +1,7 @@
-<div class="row" *ngFor="let row of [].constructor(GRID_WIDTH); let r = index">
-    <ng-container *ngFor="let col of [].constructor(GRID_HEIGHT); let j = index" > 
-        <app-node [nodeStateMachine]="grid[r][j]">{{grid}}</app-node>
+<div class="row" *ngFor="let row of grid">
+    <ng-container *ngFor="let machine of row" > 
+        <app-node [nodeStateMachine]="machine"></app-node> <!--sets the state machine as an unused member of grid-->
     </ng-container>
 </div>
 
-<button (click)="setPath()"></button>
+<button (click)="setPath()"></button><!--temporary button for testing-->

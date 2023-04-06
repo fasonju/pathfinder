@@ -2,6 +2,7 @@
 import { NodeStateMachine } from "./NodeStateMachine";
 
 export abstract class NodeHelper {
+    //all states have their own color
     abstract readonly color : string
     node : NodeStateMachine
 

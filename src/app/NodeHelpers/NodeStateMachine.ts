@@ -9,14 +9,20 @@ import { WallHelper } from "./Wallhelper"
 export class NodeStateMachine {
     node? : NodeComponent
 
+    /**
+     * should be called the moment the component is created
+     * @param node  the component linked to this node state machine
+     */
     setNodeComponent(node : NodeComponent) : void {
         this.node = node
     }
 
+    // the three different states of each node
     wallHelper : WallHelper = new WallHelper(this)
     weightHelper : WallHelper = new WeightHelper(this)
     pathHelper : WallHelper= new PathHelper(this)
     
+    // initial state
     state : NodeHelper = this.wallHelper
     
     getColor() : string {
