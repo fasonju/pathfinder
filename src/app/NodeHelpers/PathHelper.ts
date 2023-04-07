@@ -14,6 +14,7 @@ export class PathHelper extends NodeHelper {
     }
 
     reset() : void {
+        this.visited = false
         console.log("resetting path")
     }
 

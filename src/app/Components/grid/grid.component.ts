@@ -14,7 +14,6 @@ export class GridComponent {
   grid : NodeStateMachine[][] = this.pathfinderService.grid;
   GRID_WIDTH : number = this.pathfinderService.GRID_WIDTH;
   GRID_HEIGHT : number = this.pathfinderService.GRID_HEIGHT;
-  
   constructor(private pathfinderService : PathfinderService) { }
   
 
@@ -26,10 +25,10 @@ export class GridComponent {
   /**
    * delete this function later
    */
-  setPath() : void {
+  reset() : void {
     for (let row  of this.grid) {
       for (let node  of row) {
-        node.transitionType()
+        node.reset()
       }
     }
   }

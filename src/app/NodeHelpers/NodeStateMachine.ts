@@ -45,7 +45,7 @@ export class NodeStateMachine {
         this.wallHelper.reset()
         this.weightHelper.reset()
         this.pathHelper.reset()
-        this.state = this.wallHelper
+        this.state = this.pathHelper
     }
     
     click() : void {
