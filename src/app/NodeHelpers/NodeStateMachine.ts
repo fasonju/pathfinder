@@ -14,6 +14,8 @@ export class NodeStateMachine {
     leftNode? : NodeStateMachine
     rightNode? : NodeStateMachine
 
+    currentAlgorithm? : string = this.nodeComponent?.currentAlgorithm
+
 
     /**
      * should be called the moment the component is created
@@ -30,7 +32,7 @@ export class NodeStateMachine {
     
     // initial state
     state : NodeHelper = this.wallHelper
-    
+
     getColor() : string {
         return this.state.color
     }
@@ -48,7 +50,5 @@ export class NodeStateMachine {
     
     click() : void {
         this.state.click()
-        this.leftNode?.transitionType()
-        this.downNode?.transitionType()
     }
 }

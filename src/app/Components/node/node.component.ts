@@ -8,6 +8,7 @@ import { NodeStateMachine } from '../../NodeHelpers/NodeStateMachine';
 })
 export class NodeComponent {
   @Input() nodeStateMachine! : NodeStateMachine;
+  @Input() currentAlgorithm! : string;
 
   ngOnInit(): void {
     this.nodeStateMachine.setNodeComponent(this)
