@@ -7,14 +7,20 @@ import { WallHelper } from "./Wallhelper"
 
 
 export class NodeStateMachine {
-    node? : NodeComponent
+    nodeComponent? : NodeComponent
+
+    upNode? : NodeStateMachine
+    downNode? : NodeStateMachine
+    leftNode? : NodeStateMachine
+    rightNode? : NodeStateMachine
+
 
     /**
      * should be called the moment the component is created
      * @param node  the component linked to this node state machine
      */
-    setNodeComponent(node : NodeComponent) : void {
-        this.node = node
+    setNodeComponent(nodeComponent : NodeComponent) : void {
+        this.nodeComponent = nodeComponent
     }
 
     // the three different states of each node
@@ -41,6 +47,6 @@ export class NodeStateMachine {
     }
     
     click() : void {
-        this.state.click()
+        this.state.transitionType()
     }
 }

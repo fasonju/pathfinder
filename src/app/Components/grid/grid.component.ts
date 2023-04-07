@@ -24,7 +24,27 @@ export class GridComponent {
       this.grid.push([])
       for (let j = 0; j < this.GRID_WIDTH; j++) {
         this.grid[i].push(new NodeStateMachine())  //thse state machines are not yet linked to their components
+        // sets left node for all nodes exepct first node
+        if (j !=0 ) { this.grid[i][j].leftNode = this.grid[i][j-1] }  
+
+        // connects left node to right node
+        if (j == this.GRID_WIDTH - 1) { 
+          
+          this.grid[i][j].rightNode = this.grid[i][0] 
+          this.grid[i][0].leftNode = this.grid[i][j]
+        } 
+
+        // connects this row to previous row
+        if (i !=0 ) { 
+          this.grid[i][j].upNode = this.grid[i-1][j] 
+          this.grid[i-1][j].downNode = this.grid[i][j]
+        } 
       }
+    }
+    //finally connect first row to last row
+    for (let j = 0; j < this.GRID_WIDTH; j++) {
+      this.grid[0][j].upNode = this.grid[this.GRID_HEIGHT - 1][j]
+      this.grid[this.GRID_HEIGHT - 1][j].downNode = this.grid[0][j]
     }
   }
 
