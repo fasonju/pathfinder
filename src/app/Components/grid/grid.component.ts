@@ -10,8 +10,8 @@ export class GridComponent {
 
   //this is a representation of the grid that stores all state machines for each node
   grid : NodeStateMachine[][] = [];
-  GRID_WIDTH : number = 20;
-  GRID_HEIGHT : number = 20;
+  GRID_WIDTH : number = 25;
+  GRID_HEIGHT : number = 25;
   constructor() { }
   
 
@@ -19,32 +19,40 @@ export class GridComponent {
     this.createGrid()
   }
 
+  /**
+   * creates a grid of nodes, we store their statemMachine which is connected to it's component in html and links it to it's neighbors
+   */
   createGrid() : void {
-    for (let i = 0; i < this.GRID_HEIGHT; i++) {
+    for (let row = 0; row < this.GRID_HEIGHT; row++) {
       this.grid.push([])
-      for (let j = 0; j < this.GRID_WIDTH; j++) {
-        this.grid[i].push(new NodeStateMachine())  //thse state machines are not yet linked to their components
-        // sets left node for all nodes exepct first node
-        if (j !=0 ) { this.grid[i][j].leftNode = this.grid[i][j-1] }  
+      for (let column = 0; column < this.GRID_WIDTH; column++) {
+        this.grid[row].push(new NodeStateMachine())  //thse state machines are not yet linked to their components
 
-        // connects left node to right node
-        if (j == this.GRID_WIDTH - 1) { 
-          
-          this.grid[i][j].rightNode = this.grid[i][0] 
-          this.grid[i][0].leftNode = this.grid[i][j]
+        // sets left node for all nodes exepct first node
+        if (column !=0 ) { 
+          this.grid[row][column].leftNode = this.grid[row][column-1] 
+          this.grid[row][column-1].rightNode = this.grid[row][column]
+        }  
+
+        // connects outer left node to the outer right node
+        if (column == this.GRID_WIDTH - 1) { 
+
+          this.grid[row][column].rightNode = this.grid[row][0] 
+          this.grid[row][0].leftNode = this.grid[row][column]
         } 
 
         // connects this row to previous row
-        if (i !=0 ) { 
-          this.grid[i][j].upNode = this.grid[i-1][j] 
-          this.grid[i-1][j].downNode = this.grid[i][j]
+        if (row !=0 ) { 
+          this.grid[row][column].upNode = this.grid[row-1][column] 
+          this.grid[row-1][column].downNode = this.grid[row][column]
         } 
+
       }
     }
-    //finally connect first row to last row
-    for (let j = 0; j < this.GRID_WIDTH; j++) {
-      this.grid[0][j].upNode = this.grid[this.GRID_HEIGHT - 1][j]
-      this.grid[this.GRID_HEIGHT - 1][j].downNode = this.grid[0][j]
+    //finally connect first row to last row vertically
+    for (let column = 0; column < this.GRID_WIDTH; column++) {
+      this.grid[0][column].upNode = this.grid[this.GRID_HEIGHT - 1][column]
+      this.grid[this.GRID_HEIGHT - 1][column].downNode = this.grid[0][column]
     }
   }
 

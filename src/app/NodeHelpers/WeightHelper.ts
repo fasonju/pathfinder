@@ -1,7 +1,7 @@
 import { NodeHelper } from "./NodeHelper"
 
 export class WeightHelper extends NodeHelper {
-    color : string = "purple"
+    color : string = "green"
 
     transitionType() : void {
         this.toPath()
@@ -11,7 +11,7 @@ export class WeightHelper extends NodeHelper {
         this.transitionType()
     }
 
-    reset() {
+    reset() : void {
         console.log("resetting weight")
     }
 }

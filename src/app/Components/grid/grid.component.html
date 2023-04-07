@@ -1,7 +1,10 @@
-<div class="row" *ngFor="let row of grid">
-    <ng-container *ngFor="let machine of row" > 
-        <app-node [nodeStateMachine]="machine"></app-node> <!--sets the state machine as an unused member of grid-->
-    </ng-container>
+<div id="gridcontainer">
+    <div id="grid" [ngStyle]="{'grid-template-columns': GRID_HEIGHT, 'grid-template-rows': GRID_WIDTH}">
+        <ng-container *ngFor="let row of grid; let rowIndex = index">
+            <app-node *ngFor="let machine of row; let columnIndex = index" [nodeStateMachine]="machine" [ngStyle]="{'grid-column': columnIndex + 1, 'grid-row': rowIndex + 1}"><!-- + 1 because index -->
+            </app-node> <!--links the statemachine to the component-->
+        </ng-container>
+    </div>
 </div>
 
 <button (click)="setPath()"></button><!--temporary button for testing-->

@@ -47,6 +47,8 @@ export class NodeStateMachine {
     }
     
     click() : void {
-        this.state.transitionType()
+        this.state.click()
+        this.leftNode?.transitionType()
+        this.downNode?.transitionType()
     }
 }
