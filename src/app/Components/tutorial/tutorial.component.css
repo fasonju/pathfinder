@@ -1,0 +1,7 @@
+p {
+    @apply border border-solid inline-block bg-gray-400 p-10 w-1/2;
+}
+
+.textblock {
+    @apply flex items-center justify-center
+}
