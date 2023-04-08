@@ -1,3 +1,3 @@
 .navlink {
-  @apply inline-block py-4 px-4 text-white hover:bg-gray-700;
+  @apply inline-block py-4 px-4 text-white hover:text-purple-800;
 }
