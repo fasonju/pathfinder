@@ -1,10 +1,11 @@
-<div id="gridcontainer">
-    <div id="grid" [ngStyle]="{'grid-template-columns': GRID_HEIGHT, 'grid-template-rows': GRID_WIDTH}">
+
+<div class="flex items-center justify-center">
+    <div class="grid flex-wrap" [ngStyle]="{'grid-template-columns': GRID_HEIGHT, 'grid-template-rows': GRID_WIDTH}">
         <ng-container *ngFor="let row of grid; let rowIndex = index">
-            <app-node *ngFor="let machine of row; let columnIndex = index" [nodeStateMachine]="machine" [currentAlgorithm]="currentAlgorithm" [ngStyle]="{'grid-column': columnIndex + 1, 'grid-row': rowIndex + 1}"><!-- + 1 because index -->
+            <app-node *ngFor="let machine of row; let columnIndex = index" [nodeStateMachine]="machine" [ngStyle]="{'grid-column': columnIndex + 1, 'grid-row': rowIndex + 1}"><!-- + 1 because index -->
             </app-node> <!--links the statemachine to the component-->
         </ng-container>
     </div>
 </div>
 
-<button (click)="reset()"></button><!--temporary button for testing-->
+<button class="btn" (click)="reset()">Reset</button><!--temporary button for testing-->

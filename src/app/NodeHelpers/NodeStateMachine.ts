@@ -14,8 +14,6 @@ export class NodeStateMachine {
     leftNode? : NodeStateMachine
     rightNode? : NodeStateMachine
 
-    currentAlgorithm? : string = this.nodeComponent?.currentAlgorithm
-
 
     /**
      * should be called the moment the component is created
