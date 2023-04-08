@@ -7,8 +7,9 @@ import { NodeStateMachine } from '../NodeHelpers/NodeStateMachine';
 
 export class PathfinderService {
   grid : NodeStateMachine[][] = [];
-  GRID_WIDTH : number = 25;
-  GRID_HEIGHT : number = 25;
+  //? the number of nodes in the grid is dependent on screen size
+  GRID_WIDTH : number = Math.floor(window.innerWidth / 25);
+  GRID_HEIGHT : number = Math.floor(window.innerHeight / 30);
   
   constructor() { 
     this.createGrid()
