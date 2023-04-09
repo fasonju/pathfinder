@@ -2,8 +2,8 @@ import { NodeHelper } from "./NodeHelper"
 
 
 export class PathHelper extends NodeHelper {
-    color : string = "white"
     visited : boolean = false
+    color : string = "white"
 
     transitionType() : void {
         this.toWall()
@@ -21,5 +21,11 @@ export class PathHelper extends NodeHelper {
     visit() : void {
         this.visited = true
     }
+
+    animate() {
+        this.color = "blue"
+    }
+
+
 
 }

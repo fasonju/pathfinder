@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { NodeStateMachine } from '../NodeHelpers/NodeStateMachine';
+import { NodeStateMachine } from '../Components/Helpers/NodeHelpers/NodeStateMachine';
 
 @Injectable({
   providedIn: 'root'

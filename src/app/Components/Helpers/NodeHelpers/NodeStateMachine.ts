@@ -1,4 +1,4 @@
-import { NodeComponent } from "../Components/node/node.component"
+import { NodeComponent } from "../../node/node.component"
 import { WeightHelper } from "./WeightHelper"
 import { PathHelper } from "./PathHelper"
 import { NodeHelper } from "./NodeHelper"
@@ -30,6 +30,7 @@ export class NodeStateMachine {
     
     // initial state
     state : NodeHelper = this.wallHelper
+    stateIdentifier : string = "wall"
 
     getColor() : string {
         return this.state.color
@@ -48,5 +49,9 @@ export class NodeStateMachine {
     
     click() : void {
         this.state.click()
+    }
+
+    animate(): void {
+        this.state.animate()
     }
 }

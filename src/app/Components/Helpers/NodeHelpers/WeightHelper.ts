@@ -14,4 +14,8 @@ export class WeightHelper extends NodeHelper {
     reset() : void {
         console.log("resetting weight")
     }
+
+    animate() : void {
+        alert("animate weight does not exist")
+    }
 }

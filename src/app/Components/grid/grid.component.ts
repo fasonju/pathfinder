@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NodeStateMachine } from 'src/app/NodeHelpers/NodeStateMachine';
+import { NodeStateMachine } from 'src/app/Components/Helpers/NodeHelpers/NodeStateMachine';
 import { PathfinderService } from 'src/app/Services/pathfinder.service';
 
 @Component({

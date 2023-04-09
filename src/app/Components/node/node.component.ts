@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { NodeStateMachine } from '../../NodeHelpers/NodeStateMachine';
+import { NodeStateMachine } from '../Helpers/NodeHelpers/NodeStateMachine';
 
 @Component({
   selector: 'app-node',
