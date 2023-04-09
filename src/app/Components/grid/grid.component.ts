@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NodeStateMachine } from 'src/app/Helpers/NodeHelpers/NodeStateMachine';
 import { PathfinderService } from 'src/app/Services/pathfinder.service';
+import { BFS } from 'src/app/Helpers/AlgorithmHelpers/BFS';
 
 @Component({
   selector: 'app-grid',
@@ -14,10 +15,7 @@ export class GridComponent {
   GRID_WIDTH: number = this.pathfinderService.GRID_WIDTH;
   GRID_HEIGHT: number = this.pathfinderService.GRID_HEIGHT;
   constructor(private pathfinderService: PathfinderService) {}
-
-  /**
-   * creates a grid of nodes, we store their statemMachine which is connected to it's component in html and links it to it's neighbors
-   */
+  bfs = new BFS();
 
   /**
    * delete this function later
@@ -28,5 +26,10 @@ export class GridComponent {
         node.reset();
       }
     }
+  }
+
+  //temp
+  generateFrames(): void {
+    console.log(this.bfs.generateFrames(this.grid[0][0], this.grid[0][10]));
   }
 }

@@ -7,20 +7,13 @@ import { WallHelper } from './Wallhelper';
 export class NodeStateMachine {
   nodeComponent?: NodeComponent;
 
-  upNode: NodeStateMachine;
-  downNode: NodeStateMachine;
-  leftNode: NodeStateMachine;
-  rightNode: NodeStateMachine;
+  //! keep in mind that if these
+  //! are ever to be null because of a change in grid component where they are set typescritp will not detect it
+  upNode!: NodeStateMachine;
+  downNode!: NodeStateMachine;
+  leftNode!: NodeStateMachine;
+  rightNode!: NodeStateMachine;
 
-  /**
-   * !temporary very bug prone please fix later
-   */
-  constructor() {
-    this.upNode = this;
-    this.downNode = this;
-    this.leftNode = this;
-    this.rightNode = this;
-  }
 
   /**
    * should be called the moment the component is created
@@ -37,7 +30,30 @@ export class NodeStateMachine {
 
   // initial state
   state: NodeHelper = this.wallHelper;
-  stateIdentifier: string = 'wall';
+
+  stateWall(): Boolean {
+    return this.state instanceof WallHelper;
+  }
+
+  stateWeight(): Boolean {
+    return this.state instanceof WeightHelper;
+  }
+
+  statePath(): Boolean {
+    return this.state instanceof PathHelper;
+  }
+
+  toWall(): void {
+    this.state = this.wallHelper;
+  }
+
+  toWeight(): void {
+    this.state = this.weightHelper;
+  }
+
+  toPath(): void {
+    this.state = this.pathHelper;
+  }
 
   getColor(): string {
     return this.state.color;

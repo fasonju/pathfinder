@@ -2,7 +2,6 @@ import { NodeHelper } from "./NodeHelper"
 
 
 export class PathHelper extends NodeHelper {
-    visited : boolean = false
     color : string = "white"
 
     transitionType() : void {
@@ -14,12 +13,7 @@ export class PathHelper extends NodeHelper {
     }
 
     reset() : void {
-        this.visited = false
         console.log("resetting path")
-    }
-
-    visit() : void {
-        this.visited = true
     }
 
     animate() {
