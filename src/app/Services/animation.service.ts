@@ -1,26 +1,23 @@
 import { Injectable } from '@angular/core';
-import {AnimationFrame} from "../Components/Helpers/AnimationFrame"
-
+import { AnimationFrame } from '../Helpers/AnimationFrame';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AnimationService {
-
-  constructor() { }
+  constructor() {}
 
   /**
    * Temporary representation of breadth firstsearch
-   * 
+   *
    * @param grid grid from pathfinderService
-   * @param startNode 
-   * @param endNode 
-   * @returns 
+   * @param startNode
+   * @param endNode
+   * @returns
    */
-  public animatePath(frames : AnimationFrame[] ) {  
-
+  public animatePath(frames: AnimationFrame[]) {
     for (let frame of frames) {
-      frame.execute()
+      frame.execute();
     }
   }
 }

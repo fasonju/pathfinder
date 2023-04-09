@@ -11,7 +11,8 @@ export class BFS {
         let currentNode : NodeStateMachine = startNode
 
         while (currentNode != endNode) {
-            
+            queue.push(currentNode.leftNode?)
+            queue.push(currentNode.rightNode?)
         }
     }
 }
