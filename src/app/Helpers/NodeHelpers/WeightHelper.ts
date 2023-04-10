@@ -1,21 +1,28 @@
-import { NodeHelper } from "./NodeHelper"
+import { NodeHelper } from './NodeHelper';
 
 export class WeightHelper extends NodeHelper {
-    color : string = "green"
+  color: string = 'green';
 
-    transitionType() : void {
-        this.toPath()
-    }
+  transitionType(): void {
+    this.toPath();
+  }
 
-    click() : void {
-        this.transitionType()
-    }
+  click(): void {
+    this.transitionType();
+  }
 
-    reset() : void {
-        console.log("resetting weight")
-    }
+  reset(): void {
+    console.log('resetting weight');
+  }
 
-    animate() : void {
-        alert("animate weight does not exist")
+  animate(type: string): void {
+    switch (type) {
+      case 'reduce':
+        console.log('reduce weight effect');
+        break;
+      default:
+        alert('Invalid animation type');
+        break;
     }
+  }
 }

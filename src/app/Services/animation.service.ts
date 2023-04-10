@@ -1,23 +1,20 @@
 import { Injectable } from '@angular/core';
 import { AnimationFrame } from '../Helpers/AnimationFrame';
+import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root',
+    providedIn: 'root',
 })
 export class AnimationService {
-  constructor() {}
+    constructor() {}
 
-  /**
-   * Temporary representation of breadth firstsearch
-   *
-   * @param grid grid from pathfinderService
-   * @param startNode
-   * @param endNode
-   * @returns
-   */
-  public animatePath(frames: AnimationFrame[]) {
-    for (let frame of frames) {
-      frame.execute();
+    public async animate(frames: AnimationFrame[], timeBetweenFrames: number): Promise<void> {
+        const timeout = (ms: number) => new Promise((res) => setTimeout(res, ms));
+
+        const timer = new Observable();
+        for (let frame of frames) {
+            frame.animate();
+            await timeout(timeBetweenFrames);
+        }
     }
-  }
 }

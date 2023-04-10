@@ -14,7 +14,6 @@ export class NodeStateMachine {
   leftNode!: NodeStateMachine;
   rightNode!: NodeStateMachine;
 
-
   /**
    * should be called the moment the component is created
    * @param node  the component linked to this node state machine
@@ -74,7 +73,7 @@ export class NodeStateMachine {
     this.state.click();
   }
 
-  animate(): void {
-    this.state.animate();
+  animate(type: string): void {
+    this.state.animate(type);
   }
 }

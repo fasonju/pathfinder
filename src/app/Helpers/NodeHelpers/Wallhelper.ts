@@ -15,7 +15,7 @@ export class WallHelper extends NodeHelper {
         console.log("resetting wall")
     }
 
-    animate() : void {
+    animate(type : string) : void {
         alert("animate wall does not exist")
     }
 }

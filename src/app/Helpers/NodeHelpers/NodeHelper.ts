@@ -29,5 +29,5 @@ export abstract class NodeHelper {
   //temp
   abstract transitionType(): void;
 
-  abstract animate(): void;
+  abstract animate(type : string): void;
 }
