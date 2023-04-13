@@ -1,5 +1,5 @@
 .node-transition-path {
-    animation-name: visitedAnimation;
+    animation-name: pathAnimation;
 }
 
 .node-transition-wall {
@@ -10,7 +10,15 @@
     animation-name: weightAnimation;
 }
 
-@keyframes visitedAnimation {
+.node-transition-staged {
+    animation-name: stageAnimation;
+}
+
+.node-transition-visited {
+    animation-name: visitedAnimation;
+}
+
+@keyframes pathAnimation {
     0% {
         @apply bg-gray-600 rounded-full scale-50;
     }
@@ -42,12 +50,12 @@
     }
 
     25% {
-        @apply bg-gray-700 scale-75 rounded-xl;
+        @apply bg-gray-500 scale-75 rounded-xl;
         transform: scale(0.8);
     }
 
     50% {
-        @apply bg-gray-800;
+        @apply bg-gray-600;
         transform: scale(1);
     }
 
@@ -84,6 +92,58 @@
 
     100% {
         @apply bg-green-700;
+        transform: scale(1);
+    }
+}
+
+@keyframes stageAnimation {
+    0% {
+        @apply bg-yellow-100 rounded-full scale-50;
+    }
+
+    25% {
+        @apply bg-yellow-100 scale-75 rounded-xl;
+        transform: scale(0.8);
+    }
+
+    50% {
+        @apply bg-yellow-100;
+        transform: scale(1);
+    }
+
+    75% {
+        @apply bg-yellow-100;
+        transform: scale(1.2);
+    }
+
+    100% {
+        @apply bg-yellow-100;
+        transform: scale(1);
+    }
+}
+
+@keyframes visitedAnimation {
+    0% {
+        @apply bg-yellow-300 rounded-full scale-50;
+    }
+
+    25% {
+        @apply bg-yellow-400 scale-75 rounded-xl;
+        transform: scale(0.8);
+    }
+
+    50% {
+        @apply bg-orange-300;
+        transform: scale(1);
+    }
+
+    75% {
+        @apply bg-orange-400;
+        transform: scale(1.2);
+    }
+
+    100% {
+        @apply bg-orange-400;
         transform: scale(1);
     }
 }

@@ -16,8 +16,8 @@ export class PathHelper extends NodeHelper {
 
     reset(): void {
         this.color = this.defaultColor;
-        this.staged = false
-        this.visited = false
+        this.staged = false;
+        this.visited = false;
         console.log('resetting path');
     }
 
@@ -25,11 +25,11 @@ export class PathHelper extends NodeHelper {
         switch (type) {
             case 'staged':
                 this.staged = true;
-                this.color = 'gray'; //! replace too similar to wall
+                this.color = 'rgb(254, 249, 195)'; //? these values are from tailwind yellow-100
                 break;
             case 'visited':
                 this.visited = true;
-                this.color = 'black'; //! replace too similar to wall
+                this.color = 'orange'; //! replace too similar to wall
                 break;
             default:
                 alert('Invalid animation type');
@@ -38,10 +38,10 @@ export class PathHelper extends NodeHelper {
     }
 
     stateStaged(): boolean {
-        return this.staged
+        return this.staged;
     }
 
     stateVisited(): boolean {
-        return this.visited
+        return this.visited;
     }
 }
