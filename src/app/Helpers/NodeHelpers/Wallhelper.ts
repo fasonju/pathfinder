@@ -20,4 +20,12 @@ export class WallHelper extends NodeHelper {
     animate(type: string): void {
         alert('animate wall does not exist');
     }
+
+    stateStaged(): boolean {
+        return false;
+    }
+
+    stateVisited(): boolean {
+        return false;
+    }
 }

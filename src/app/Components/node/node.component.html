@@ -1,11 +1,14 @@
-<div #animationTarget 
+<div 
+#animationTarget 
 class="w-6 h-6 border-solid border border-black"  
 [ngStyle]="{'background-color' : this.getColor(), 
 'animation-duration': animationDuration + 's'}" 
 [ngClass]="{
     'node-transition-path': this.nodeStateMachine.statePath(),
     'node-transition-wall': this.nodeStateMachine.stateWall(),
-    'node-transition-weight': this.nodeStateMachine.stateWeight()
-}" 
+    'node-transition-weight': this.nodeStateMachine.stateWeight(),
+    'node-transition-staged': this.nodeStateMachine.stateStaged(),
+    'node-transition-visited': this.nodeStateMachine.stateVisited()
+}"
 (mousedown)="click()">
-</div>
+</div> <!-- trigger animations on change-->

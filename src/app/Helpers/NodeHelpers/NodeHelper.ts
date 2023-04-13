@@ -29,4 +29,8 @@ export abstract class NodeHelper {
     abstract transitionType(): void;
 
     abstract animate(type: string): void;
+
+    abstract stateStaged(): boolean;
+
+    abstract stateVisited(): boolean;
 }

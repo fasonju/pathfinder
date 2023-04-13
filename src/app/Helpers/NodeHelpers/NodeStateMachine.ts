@@ -24,8 +24,8 @@ export class NodeStateMachine {
 
     // the three different states of each node
     wallHelper: WallHelper = new WallHelper(this);
-    weightHelper: WallHelper = new WeightHelper(this);
-    pathHelper: WallHelper = new PathHelper(this);
+    weightHelper: WeightHelper = new WeightHelper(this);
+    pathHelper: PathHelper = new PathHelper(this);
 
     // initial state
     state: NodeHelper = this.pathHelper;
@@ -40,6 +40,14 @@ export class NodeStateMachine {
 
     statePath(): Boolean {
         return this.state instanceof PathHelper;
+    }
+
+    stateVisited(): Boolean {
+        return this.state.stateVisited()
+    }
+
+    stateStaged(): Boolean {
+        return this.state.stateStaged()
     }
 
     toWall(): void {
@@ -58,6 +66,9 @@ export class NodeStateMachine {
         return this.state.color;
     }
 
+    /**
+     * @description transition order = path -> wall -> weight -> path
+     */
     transitionType(): void {
         this.state.transitionType();
     }
