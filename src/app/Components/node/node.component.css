@@ -1,0 +1,89 @@
+.node-transition-path {
+    animation-name: visitedAnimation;
+}
+
+.node-transition-wall {
+    animation-name: wallAnimation;
+}
+
+.node-transition-weight {
+    animation-name: weightAnimation;
+}
+
+@keyframes visitedAnimation {
+    0% {
+        @apply bg-gray-600 rounded-full scale-50;
+    }
+
+    25% {
+        @apply bg-gray-500 scale-75 rounded-xl;
+        transform: scale(0.8);
+    }
+
+    50% {
+        @apply bg-gray-400;
+        transform: scale(1);
+    }
+
+    75% {
+        @apply bg-gray-300;
+        transform: scale(1.2);
+    }
+
+    100% {
+        @apply bg-gray-200;
+        transform: scale(1);
+    }
+}
+
+@keyframes wallAnimation {
+    0% {
+        @apply bg-gray-400 rounded-full scale-50;
+    }
+
+    25% {
+        @apply bg-gray-700 scale-75 rounded-xl;
+        transform: scale(0.8);
+    }
+
+    50% {
+        @apply bg-gray-800;
+        transform: scale(1);
+    }
+
+    75% {
+        @apply bg-gray-900;
+        transform: scale(1.2);
+    }
+
+    100% {
+        @apply bg-black;
+        transform: scale(1);
+    }
+}
+
+@keyframes weightAnimation {
+    0% {
+        @apply bg-gray-400 rounded-full scale-50;
+    }
+
+    25% {
+        @apply bg-green-200 scale-75 rounded-xl;
+        transform: scale(0.8);
+    }
+
+    50% {
+        @apply bg-green-400;
+        transform: scale(1);
+    }
+
+    75% {
+        @apply bg-green-600;
+        transform: scale(1.2);
+    }
+
+    100% {
+        @apply bg-green-700;
+        transform: scale(1);
+    }
+}

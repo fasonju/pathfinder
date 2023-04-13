@@ -1,1 +1,11 @@
-<div class="h-5 w-5 border-solid border border-black transition-color transition-bounce ease-in duration-100"  [ngStyle]="{'background-color' : this.getColor()}" (mousedown)="click()"></div>
+<div #animationTarget 
+class="w-6 h-6 border-solid border border-black"  
+[ngStyle]="{'background-color' : this.getColor(), 
+'animation-duration': animationDuration + 's'}" 
+[ngClass]="{
+    'node-transition-path': this.nodeStateMachine.statePath(),
+    'node-transition-wall': this.nodeStateMachine.stateWall(),
+    'node-transition-weight': this.nodeStateMachine.stateWeight()
+}" 
+(mousedown)="click()">
+</div>

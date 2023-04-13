@@ -5,7 +5,7 @@ import { NodeHelper } from './NodeHelper';
 import { WallHelper } from './Wallhelper';
 
 export class NodeStateMachine {
-    nodeComponent?: NodeComponent;
+    nodeComponent!: NodeComponent;
 
     //! keep in mind that if these
     //! are ever to be null because of a change in grid component where they are set typescritp will not detect it

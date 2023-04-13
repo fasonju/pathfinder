@@ -10,8 +10,8 @@ import { AnimationFrame } from '../Helpers/AnimationFrame';
 export class PathfinderService {
     grid: NodeStateMachine[][] = [];
     //? the number of nodes in the grid is dependent on screen size
-    GRID_WIDTH: number = Math.floor(window.innerWidth / 25);
-    GRID_HEIGHT: number = Math.floor(window.innerHeight / 30);
+    GRID_WIDTH: number = Math.floor(window.innerWidth / 30);
+    GRID_HEIGHT: number = Math.floor(window.innerHeight / 40);
     timeBetweenFrames: number = 100;
 
     constructor(private animationService: AnimationService) {

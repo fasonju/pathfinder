@@ -20,10 +20,10 @@ export class PathHelper extends NodeHelper {
     animate(type: string): void {
         switch (type) {
             case 'staged':
-                this.color = 'gray';
+                this.color = 'gray'; //! replace too similar to wall
                 break;
             case 'visited':
-                this.color = 'black';
+                this.color = 'black'; //! replace too similar to wall
                 break;
             default:
                 alert('Invalid animation type');
