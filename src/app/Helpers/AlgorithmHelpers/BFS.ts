@@ -5,7 +5,8 @@ import { Algorithm } from './Algorithm';
 /**
  * generates animation frames for BFS
  */
-export class BFS implements Algorithm {
+export class BFS extends Algorithm {
+    name : string = "Breadth First Search";
     /**
      * @description generates a list of frames to be animated for BFS
      *! @important this function is not yet complete bad coding practices and weights not ipmlemented

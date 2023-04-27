@@ -1,0 +1,11 @@
+<div>
+    <app-grid #grid></app-grid>
+</div>
+<ul>
+    <li *ngFor="let alg of algorithms">
+        <button class="btn" (click)="setAlgorithm(alg)">{{alg.name}}</button>
+    </li>
+</ul>
+<div>
+
+<button class="btn" (click)="grid.reset()">Reset</button>

@@ -3,12 +3,14 @@ import { NodeStateMachine } from '../Helpers/NodeHelpers/NodeStateMachine';
 import { AnimationService } from './animation.service';
 import { Algorithm } from '../Helpers/AlgorithmHelpers/Algorithm';
 import { AnimationFrame } from '../Helpers/AnimationFrame';
+import { BFS } from '../Helpers/AlgorithmHelpers/BFS';
 
 @Injectable({
     providedIn: 'root',
 })
 export class PathfinderService {
     grid: NodeStateMachine[][] = [];
+    currentAlgorithm: Algorithm = new BFS();
     //? the number of nodes in the grid is dependent on screen size
     GRID_WIDTH: number = Math.floor(window.innerWidth / 30);
     GRID_HEIGHT: number = Math.floor(window.innerHeight / 40);
@@ -50,10 +52,14 @@ export class PathfinderService {
         }
     }
 
-    animate(algorithm: Algorithm): void {
+    animate(): void {
         const startNode: NodeStateMachine = this.grid[15][12];
         const endNode: NodeStateMachine = this.grid[2][3];
-        const frames: AnimationFrame[] = algorithm.generateFrames(startNode, endNode);
+        const frames: AnimationFrame[] = this.currentAlgorithm.generateFrames(startNode, endNode);
         this.animationService.animate(frames, this.timeBetweenFrames);
+    }
+
+    setAlgorithm(algorithm: Algorithm): void {
+        this.currentAlgorithm = algorithm;
     }
 }

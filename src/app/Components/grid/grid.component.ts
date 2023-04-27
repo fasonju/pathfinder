@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { NodeStateMachine } from 'src/app/Helpers/NodeHelpers/NodeStateMachine';
 import { PathfinderService } from 'src/app/Services/pathfinder.service';
 import { BFS } from 'src/app/Helpers/AlgorithmHelpers/BFS';
@@ -9,7 +9,6 @@ import { BFS } from 'src/app/Helpers/AlgorithmHelpers/BFS';
     styleUrls: ['./grid.component.css'],
 })
 export class GridComponent {
-    currentAlgorithm: string = 'bloomPattern';
     //this is a representation of the grid that stores all state machines for each node
     grid: NodeStateMachine[][] = this.pathfinderService.grid;
     GRID_WIDTH: number = this.pathfinderService.GRID_WIDTH;
@@ -27,9 +26,4 @@ export class GridComponent {
         }
     }
 
-    //temp
-    algorithm = new BFS(); //? make this an input field later
-    generateFrames(): void {
-        this.pathfinderService.animate(this.algorithm);
-    }
 }

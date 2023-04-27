@@ -7,6 +7,7 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
 import { TutorialComponent } from './Components/tutorial/tutorial.component';
 import { NodeComponent } from './Components/node/node.component';
 import { GridComponent } from './Components/grid/grid.component';
+import { DashboardComponent } from './Components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { GridComponent } from './Components/grid/grid.component';
     NavbarComponent,
     TutorialComponent,
     NodeComponent,
-    GridComponent
+    GridComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
