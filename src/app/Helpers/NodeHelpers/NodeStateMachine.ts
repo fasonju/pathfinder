@@ -6,13 +6,14 @@ import { WallHelper } from './Wallhelper';
 
 export class NodeStateMachine {
     nodeComponent!: NodeComponent;
-
     //! keep in mind that if these
-    //! are ever to be null because of a change in grid component where they are set typescritp will not detect it
+    //! are ever to be null because of a change in grid component where they are set typescript will not detect it
     upNode!: NodeStateMachine;
     downNode!: NodeStateMachine;
     leftNode!: NodeStateMachine;
     rightNode!: NodeStateMachine;
+    isStartNode: Boolean = false;
+    isEndNode: Boolean = false;
 
     /**
      * should be called the moment the component is created
@@ -63,6 +64,12 @@ export class NodeStateMachine {
     }
 
     getColor(): string {
+        if (this.isStartNode) {
+            return "blue";
+        }
+        if (this.isEndNode) {
+            return "purple";
+        }
         return this.state.color;
     }
 
@@ -78,6 +85,8 @@ export class NodeStateMachine {
         this.weightHelper.reset();
         this.pathHelper.reset();
         this.state = this.pathHelper;
+        this.isStartNode = false;
+        this.isEndNode = false;
     }
 
     click(): void {
@@ -86,5 +95,30 @@ export class NodeStateMachine {
 
     animate(type: string): void {
         this.state.animate(type);
+    }
+
+    /**
+     * start and end nodes are special cases of path nodes counterpart removeSTartNode
+     */
+    setStartNode(): void {
+        this.isStartNode = true;
+        this.toPath();
+    }
+
+    /**
+     * @description start and end nodes are special cases of path nodes counterpart removeEndNode
+     * 
+     */
+    setEndNode(): void {
+        this.isEndNode = true;
+        this.toPath();
+    }
+
+    removeStartNode(): void {
+        this.isStartNode = false;
+    }
+
+    removeEndNode(): void {
+        this.isEndNode = false;
     }
 }

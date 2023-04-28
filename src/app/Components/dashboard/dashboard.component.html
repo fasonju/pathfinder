@@ -1,11 +1,13 @@
-<div>
-    <app-grid #grid></app-grid>
-</div>
-<ul>
-    <li *ngFor="let alg of algorithms">
-        <button class="btn" (click)="setAlgorithm(alg)">{{alg.name}}</button>
-    </li>
-</ul>
-<div>
 
-<button class="btn" (click)="grid.reset()">Reset</button>
+<div class="flex space-x-4">
+    <select [ngModel]="currentAlgorithm" (ngModelChange)="setAlgorithm($event)" 
+    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500
+    focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400
+    dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+        <option [ngValue]="algorithm" *ngFor="let algorithm of algorithms">{{algorithm.name}}</option>
+    </select>
+    <input [ngModel]="animationSpeed" (ngModelChange)="setAnimationSpeed($event)" type="range" min="0" max="90">
+</div>
+
+<app-grid></app-grid>
+<button class="btn" (click)="animateAlgorithm()">animate</button>

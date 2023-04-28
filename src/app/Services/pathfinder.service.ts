@@ -14,10 +14,13 @@ export class PathfinderService {
     //? the number of nodes in the grid is dependent on screen size
     GRID_WIDTH: number = Math.floor(window.innerWidth / 30);
     GRID_HEIGHT: number = Math.floor(window.innerHeight / 40);
-    timeBetweenFrames: number = 100;
+    startNode?: NodeStateMachine
+    endNode?: NodeStateMachine
 
     constructor(private animationService: AnimationService) {
         this.createGrid();
+        this.setStartNode(this.grid[0][0]);
+        this.setEndNode(this.grid[this.GRID_HEIGHT / 2][this.GRID_WIDTH /2]);
     }
 
     createGrid(): void {
@@ -52,14 +55,61 @@ export class PathfinderService {
         }
     }
 
+    /**
+     * @description call from dashboard component to animate the current algorithm
+     */
     animate(): void {
-        const startNode: NodeStateMachine = this.grid[15][12];
-        const endNode: NodeStateMachine = this.grid[2][3];
-        const frames: AnimationFrame[] = this.currentAlgorithm.generateFrames(startNode, endNode);
-        this.animationService.animate(frames, this.timeBetweenFrames);
+        if (this.startNode == undefined || this.endNode == undefined) {
+            alert("Please select a start and end node before animating")
+            return;
+        }
+        const frames: AnimationFrame[] = this.currentAlgorithm.generateFrames(this.startNode, this.endNode);
+        this.animationService.animate(frames);
     }
 
+    /**
+     * @description call from dashboard component to set the speed of the animation
+     * @param speed 100ms - speed is the time between frames
+     */
+    setAnimationSpeed(speed: number): void {
+        this.animationService.timeBetweenFrames = 100 - speed;
+    }
+
+    /**
+     * @description call from dashboard component to set the algorithm to be used
+     * @param algorithm the algorithm to be used for any operations in the program
+     */
     setAlgorithm(algorithm: Algorithm): void {
         this.currentAlgorithm = algorithm;
+    }
+
+    /**
+     * @description removes start node from old start node and sets it to the new one.
+     * @param newStartNode the new start node to be set
+     */
+    setStartNode(newStartNode: NodeStateMachine): void {
+        if (this.startNode != undefined) {
+            this.startNode.removeStartNode();
+        }
+        if (this.endNode == newStartNode) {
+            this.endNode = undefined;
+        }
+        this.startNode = newStartNode;
+        this.startNode.setStartNode();
+    }
+
+    /**
+     * @description removes end node from old end node and sets it to the new one.
+     * @param newEndNode the new end node to be set
+     */
+    setEndNode(newEndNode: NodeStateMachine): void {
+        if (this.endNode != undefined) {
+            this.endNode.removeEndNode();
+        }
+        if (this.startNode == newEndNode) {
+            this.startNode = undefined;
+        }
+        this.endNode = newEndNode;
+        this.endNode.setEndNode();
     }
 }

@@ -7,14 +7,14 @@ import { Observable } from 'rxjs';
 })
 export class AnimationService {
     constructor() {}
-
-    public async animate(frames: AnimationFrame[], timeBetweenFrames: number): Promise<void> {
+    timeBetweenFrames: number = 100;
+    public async animate(frames: AnimationFrame[]): Promise<void> {
         const timeout = (ms: number) => new Promise((res) => setTimeout(res, ms));
 
         const timer = new Observable();
         for (let frame of frames) {
             frame.animate();
-            await timeout(timeBetweenFrames);
+            await timeout(this.timeBetweenFrames);
         }
     }
 }
